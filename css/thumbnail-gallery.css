@@ -1,0 +1,11 @@
+body {
+    width: 800px;
+    height: 500px;
+    overflow: scroll;
+}
+.thumb {
+    margin-bottom: 30px;
+}
+footer {
+    margin: 50px 0;
+}

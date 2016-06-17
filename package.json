@@ -1,0 +1,18 @@
+{
+  "name": "morecat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "clarifai": "^1.2.1",
+    "jquery": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify app.js -o bundle.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

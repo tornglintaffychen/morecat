@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>moreCat</title>
+    <script src="bundle.js"></script>
+</head>
+
+<body ng-app="moreCat">
+    <div ng-controller="CatCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button ng-click="getTags()">get tags</button>
+                    <h4 class="page-header">{{hi}} feel better, look at cat pictures</h4>
+                </div>
+                <div  class="col-xs-3 thumb">
+                    <a class="thumbnail" href="{{image}}">
+                        <img class="img-responsive" src="{{image}}">
+                    </a>
+                </div>
+                <hr>
+
+                <!-- Footer -->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Copyright &copy; Catstagram 2016</p>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+            <!-- /.container -->
+
+    </div>
+</body>
+
+</html>
