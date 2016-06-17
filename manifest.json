@@ -1,0 +1,21 @@
+{
+  "manifest_version" : 2,
+  "name" : "moreCat",
+  "description": "check if there's enough cats on your web page",
+  "version": "1.0",
+  "browser_action": {
+    "default_title": "moreCat",
+    "default_icon": "./images/logo.png",
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [{
+    "matches": ["http://*/*","https://*/*"],
+    "js": ["content/bundle.js"]
+    }],
+  "permissions" : [
+    "background",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+}

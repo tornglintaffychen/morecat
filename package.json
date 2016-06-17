@@ -6,12 +6,18 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-ui-router": "^0.3.1",
+    "bluebird": "^3.4.0",
+    "browserify": "^13.0.1",
     "clarifai": "^1.2.1",
-    "jquery": "^3.0.0"
+    "gulp": "^3.9.1",
+    "jquery": "^3.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
   },
   "devDependencies": {},
   "scripts": {
-    "build": "browserify app.js -o bundle.js"
+    "build": "browserify popup/app.js -o popup/bundle.js",
+    "cont": "browserify content/index.js -o content/bundle.js"
   },
   "author": "",
   "license": "ISC"
