@@ -4,8 +4,10 @@ var $ = require('jquery');
 var Bluebird = require('bluebird');
 
 module.exports = {
-    toCat: function () {
+    allCat: function () {
+        console.log("changing imgs")
         $('img').each(function () {
+            console.log($(this))
             $(this).attr('src', 'http://cdn.grumpycats.com/wp-content/uploads/2016/02/12654647_974282002607537_7798179861389974677_n-758x758.jpg')
         })
     },
