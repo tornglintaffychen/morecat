@@ -3,10 +3,6 @@
 var content = require('./content');
 var $ = require('jquery')
 
-$(function () {
-    $("#slider").slider();
-});
-
 window.chrome.runtime.sendMessage({
     from: "content",
     subject: "showPageAction"
@@ -22,12 +18,12 @@ content.checkCat()
                         scale: scale
                     };
                     res(catScale)
-                } else if (msg.subject === "allCat") {
-                    console.log("allCat index")
-                    content.allCat()
+                } else if (msg.subject === "changeCatPercentage") {
+                    console.log("getting percentage", msg.content);
+                    content.toCats(msg.content);
                     var response = {
-                        message: "enjoy~",
-                        scale: 100
+                        message: "changed percentage",
+                        scale: msg.content
                     };
                     res(response)
                 }

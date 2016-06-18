@@ -10,7 +10,12 @@
     "browserify": "^13.0.1",
     "clarifai": "^1.2.1",
     "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
     "jquery": "^3.0.0",
+    "run-sequence": "^1.2.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   },
