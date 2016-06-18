@@ -5,12 +5,13 @@ module.exports = function ($scope) {
 
     function setScale(info) {
         $scope.catScale = info.scale;
-        console.log($scope.catScale)
         $scope.$digest();
     }
 
     function setCat(info) {
         $scope.message = info.message;
+        $scope.catScale = info.scale;
+        console.log($scope.catScale)
         $scope.$digest();
     }
 

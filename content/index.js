@@ -1,6 +1,16 @@
 'use strict';
 
 var content = require('./content');
+var $ = require('jquery')
+
+$(function () {
+    $("#slider").slider();
+});
+
+window.chrome.runtime.sendMessage({
+    from: "content",
+    subject: "showPageAction"
+});
 
 content.checkCat()
     .then(function (scale) {
@@ -16,7 +26,8 @@ content.checkCat()
                     console.log("allCat index")
                     content.allCat()
                     var response = {
-                        message: "enjoy~"
+                        message: "enjoy~",
+                        scale: 100
                     };
                     res(response)
                 }

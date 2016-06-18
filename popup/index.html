@@ -3,9 +3,16 @@
 
 <head>
     <title>moreCat</title>
-    <link href="../public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../public/css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="../public/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../public/css/thumbnail-gallery.css" rel="stylesheet" />
+    <link href="../public/css/slider.css" rel="stylesheet" />
     <script src="bundle.js"></script>
+    <script>
+    function getVal(){
+        var x = document.getElementById("myRange").value;
+        document.getElementById('demo').innerHTML = x;
+    }
+    </script>
 </head>
 
 <body ng-app="moreCat">
@@ -14,11 +21,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>cat scale: {{catScale}}</h4>
-                    <h4 class="page-header">feel better, look at cat pictures</h4>
+                    <h4>cat scale: {{catScale}} %</h4>
+<input id="myRange" type="range" min="0" max="100" value="50" step="25" onchange="getVal(this.value)"/>
+<p id="demo"></p>
+
+                        <button class="btn" ng-click="allCat()">100 %</button>
+                    </div>
+                    <h5 class="page-header">feel better, look at cat pictures</h5>
                 </div>
                 <hr>
-                <button class="btn" ng-click="allCat()">Only Cats</button>
             </div>
 
             <footer>

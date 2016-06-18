@@ -8,6 +8,10 @@
     "default_icon": "./images/logo.png",
     "default_popup": "popup/index.html"
   },
+  "background": {
+    "persistent": false,
+     "scripts": ["background.js"]
+  },
   "content_scripts": [{
     "matches": ["http://*/*","https://*/*"],
     "js": ["content/bundle.js"]
