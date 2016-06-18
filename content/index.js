@@ -26,6 +26,9 @@ content.checkCat()
                         scale: msg.content
                     };
                     res(response)
+                } else if (msg.subject === "switchImg") {
+                    console.log("getting new src", msg.content);
+                    content.changeSrc(msg.content);
                 }
             }
         })

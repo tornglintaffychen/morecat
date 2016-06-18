@@ -1,11 +1,17 @@
 body {
-    width: 270px;
-    height: 270px;
+    width: 450px;
     overflow: scroll;
+}
+.right {
+    float: right
 }
 .thumb {
     margin-bottom: 30px;
 }
 footer {
     margin: 50px 0;
+}
+#copyright {
+    font-size: 8px;
+    float: right
 }
