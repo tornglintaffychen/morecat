@@ -18,7 +18,7 @@ function randomIndex(srcs) {
 
 function defaultCats() {
     return $.ajax({
-            url: "https://pixabay.com/api/?key=" + api.pixabay.key + "&q=cats&image_type=photo"
+            url: "https://pixabay.com/api/?key=" + api.pixabay.key + "&q=cat+cute+animal&image_type=photo&per_page=60"
         })
         .then(function (res) {
             var imgUrls = res.hits.map(function (item) {
@@ -29,8 +29,7 @@ function defaultCats() {
 }
 
 var srcs = [];
-var images = getImgSrc();
-console.log("length", images.length)
+var original_images = getImgSrc();
 
 module.exports = {
     changeSrc: function (newSrcs) {
@@ -41,30 +40,10 @@ module.exports = {
 
         var sliceTo;
         if (percentage == 0) sliceTo = 0
-        else if (percentage == 25) sliceTo = Math.round(images.length / 4);
-        else if (percentage == 50) sliceTo = Math.round(images.length / 2);
-        else if (percentage == 75) sliceTo = Math.round(images.length / 4 * 3);
-        else sliceTo = images.length;
-
-        // if (srcs.length === 0) {
-        //     defaultCats()
-        //         .then(function (urls) {
-        //             srcs = urls
-        //             var count = 0;
-        //             $('img').each(function () {
-        //                 if (count === sliceTo) return;
-        //                 $(this).attr('src', srcs[randomIndex(srcs)]);
-        //                 count++;
-        //             })
-        //         })
-        // } else {
-        //     var count = 0;
-        //     $('img').each(function () {
-        //         if (count === sliceTo) return;
-        //         $(this).attr('src', srcs[randomIndex(srcs)]);
-        //         count++;
-        //     })
-        // }
+        else if (percentage == 25) sliceTo = Math.round(original_images.length / 4);
+        else if (percentage == 50) sliceTo = Math.round(original_images.length / 2);
+        else if (percentage == 75) sliceTo = Math.round(original_images.length / 4 * 3);
+        else sliceTo = original_images.length;
 
         if (srcs.length === 0) {
             defaultCats()
@@ -77,7 +56,7 @@ module.exports = {
                             $(this).attr('src', srcs[randomIndex(srcs)]);
                             count++;
                         } else {
-                            $(this).attr('src', images[i])
+                            $(this).attr('src', original_images[i])
                             i++
                         }
                     })
@@ -91,17 +70,17 @@ module.exports = {
                     $(this).attr('src', srcs[randomIndex(srcs)]);
                     count++;
                 } else {
-                    $(this).attr('src', images[i])
+                    $(this).attr('src', original_images[i])
                     i++;
                 }
             })
         }
     },
     checkCat: function () {
-        var images = getImgSrc();
+        var current_images = getImgSrc();
 
         clarifai.initialize();
-        var tags = images.map(function (img) {
+        var tags = current_images.map(function (img) {
             return clarifai.getTagsByUrl(img)
         })
 
@@ -118,7 +97,6 @@ module.exports = {
                     if (Array.isArray(tags[i])) {
                         allTagsCount++
                     }
-
                 }
 
                 var scale = +((cats / allTagsCount) * 100).toFixed(2);

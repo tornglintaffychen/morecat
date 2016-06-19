@@ -1,6 +1,10 @@
 body {
-    width: 450px;
+    width: 250px;
     overflow: scroll;
+}
+.switch {
+    font-size: 12px;
+    width: 25px;
 }
 .right {
     float: right
@@ -8,10 +12,13 @@ body {
 .thumb {
     margin-bottom: 30px;
 }
+#randomCats {
+    height: 120px;
+    width: 180px
+}
 footer {
     margin: 50px 0;
 }
-#copyright {
-    font-size: 8px;
-    float: right
+#pixabay {
+    font-size: 10px;
 }

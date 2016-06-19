@@ -30,6 +30,10 @@ gulp.task('default', function () {
         runSeq('content', 'reload')
     });
 
+    gulp.watch('content/index.js', function () {
+        runSeq('content', 'reload')
+    });
+
     gulp.watch('popup/controller/*', function () {
         runSeq('popup', 'reload')
     })

@@ -5,7 +5,7 @@
   "version": "1.0",
   "browser_action": {
     "default_title": "moreCat",
-    "default_icon": "./images/logo.png",
+    "default_icon": "./images/moreCat_logo.png",
     "default_popup": "popup/index.html"
   },
   "background": {
