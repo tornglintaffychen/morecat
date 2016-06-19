@@ -12,7 +12,7 @@ function getImgSrc() {
     return images;
 }
 
-function randomIndex() {
+function randomIndex(srcs) {
     return Math.floor(Math.random() * (srcs.length - 1 - 0 + 1)) + 1
 }
 
@@ -29,38 +29,71 @@ function defaultCats() {
 }
 
 var srcs = [];
+var images = getImgSrc();
+console.log("length", images.length)
 
 module.exports = {
     changeSrc: function (newSrcs) {
         srcs = newSrcs;
     },
     toCats: function (percentage) {
-        var images = getImgSrc();
-
         if (percentage === 0) return;
 
         var sliceTo;
-        if (percentage == 25) sliceTo = Math.round(images.length / 4);
+        if (percentage == 0) sliceTo = 0
+        else if (percentage == 25) sliceTo = Math.round(images.length / 4);
         else if (percentage == 50) sliceTo = Math.round(images.length / 2);
         else if (percentage == 75) sliceTo = Math.round(images.length / 4 * 3);
         else sliceTo = images.length;
+
+        // if (srcs.length === 0) {
+        //     defaultCats()
+        //         .then(function (urls) {
+        //             srcs = urls
+        //             var count = 0;
+        //             $('img').each(function () {
+        //                 if (count === sliceTo) return;
+        //                 $(this).attr('src', srcs[randomIndex(srcs)]);
+        //                 count++;
+        //             })
+        //         })
+        // } else {
+        //     var count = 0;
+        //     $('img').each(function () {
+        //         if (count === sliceTo) return;
+        //         $(this).attr('src', srcs[randomIndex(srcs)]);
+        //         count++;
+        //     })
+        // }
+
         if (srcs.length === 0) {
             defaultCats()
                 .then(function (urls) {
                     srcs = urls
                     var count = 0;
+                    var i = sliceTo;
                     $('img').each(function () {
-                        if (count === sliceTo) return;
-                        $(this).attr('src', srcs[randomIndex()]);
-                        count++;
+                        if (sliceTo !== 0 && count < sliceTo) {
+                            $(this).attr('src', srcs[randomIndex(srcs)]);
+                            count++;
+                        } else {
+                            $(this).attr('src', images[i])
+                            i++
+                        }
                     })
                 })
         } else {
             var count = 0;
+            var i = sliceTo;
             $('img').each(function () {
-                if (count === sliceTo) return;
-                $(this).attr('src', srcs[randomIndex()]);
-                count++;
+                if (sliceTo !== 0 && count < sliceTo) {
+                    console.log("count", count, "sliceTo", sliceTo)
+                    $(this).attr('src', srcs[randomIndex(srcs)]);
+                    count++;
+                } else {
+                    $(this).attr('src', images[i])
+                    i++;
+                }
             })
         }
     },

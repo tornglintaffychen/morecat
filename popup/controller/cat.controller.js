@@ -29,7 +29,7 @@ module.exports = function ($scope, CatFty) {
     });
 
     $scope.getPercentage = function (percentage) {
-        window.addEventListener("change", function () {
+        window.addEventListener("click", function () {
             console.log("after listener", percentage)
             chrome.tabs.query({
                 active: true,
