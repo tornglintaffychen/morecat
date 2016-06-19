@@ -19,7 +19,7 @@ content.checkCat()
                     };
                     res(catScale)
                 } else if (msg.subject === "changeCatPercentage") {
-                    console.log("getting percentage", msg.content);
+                    console.log("getting percentage", msg.content)
                     content.toCats(msg.content);
                     var response = {
                         message: "changed percentage",

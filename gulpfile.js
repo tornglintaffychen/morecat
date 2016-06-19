@@ -1,22 +1,10 @@
 var gulp = require('gulp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var eslint = require('gulp-eslint');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var runSeq = require('run-sequence');
 var livereload = require('gulp-livereload');
-
-
-// gulp.task('lintJS', function () {
-//     return gulp.src(['./content/*.js', './popup/*.js'])
-//         .pipe(plumber({
-//             errorHandler: notify.onError('Linting FAILED! Check your gulp process.')
-//         }))
-//         .pipe(eslint())
-//         .pipe(eslint.format())
-//         .pipe(eslint.failOnError());
-// });
 
 gulp.task('reload', function () {
     livereload.reload();
@@ -38,7 +26,7 @@ gulp.task('popup', function () {
 
 
 gulp.task('default', function () {
-    gulp.watch('content/*', function () {
+    gulp.watch('content/content.js', function () {
         runSeq('content', 'reload')
     });
 
@@ -53,6 +41,4 @@ gulp.task('default', function () {
     gulp.watch('popup/app.js', function () {
         runSeq('popup', 'reload')
     })
-
-    //when anything in 'content' folder changes, call browserify task
 })

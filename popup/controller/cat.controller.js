@@ -14,18 +14,13 @@ module.exports = function ($scope, CatFty) {
         $scope.$digest();
     }
 
-    function setCat(info) {
-        $scope.message = info.message;
-        $scope.catScale = info.scale;
-        console.log($scope.catScale)
-        $scope.$digest();
-    }
 
     window.addEventListener("DOMContentLoaded", function () {
         chrome.tabs.query({
             active: true,
             currentWindow: true
         }, function (tabs) {
+            console.log("cats", $scope.cats)
             chrome.tabs.sendMessage(tabs[0].id, {
                 from: "popup",
                 subject: "catScale"
@@ -33,8 +28,8 @@ module.exports = function ($scope, CatFty) {
         });
     });
 
-    $scope.getVal = function (percentage) {
-        window.addEventListener("click", function () {
+    $scope.getPercentage = function (percentage) {
+        window.addEventListener("change", function () {
             console.log("after listener", percentage)
             chrome.tabs.query({
                 active: true,

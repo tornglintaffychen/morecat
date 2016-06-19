@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <h4>Current Cat Scale: {{catScale}} %</h4>
-                    <input type="range" min="0" max="100" ng-model="catScale" value="this.value" step="25" ng-click="getVal(catScale)"/>
+                    <input type="range" min="0" max="100" ng-model="catScale" value="this.value" step="25" ng-change="getPercentage(catScale)"/>
                     <br />
                     <h5>Switch It Up with:</h5>
                     <div class="col-xs-4 thumb">
