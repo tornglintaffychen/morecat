@@ -1,4 +1,4 @@
-# morecat
+# moreCat
 
 - The extension popup window shows the percentage of cat images for any given
 web page utilizing Clarifai API
